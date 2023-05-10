@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(87, 188, 255);
+            /* background: linear-gradient(90deg, red 50%, white 50%); */
+            /*天氣 白天黑夜 鬧鐘
+            美化 增加物件
+            */
+
+
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .footer {
+            width: 100%;
+            height: 160px;
+            background-color: darkgreen;
+            position: absolute;
+            bottom: 0;
+
+            /* z-index: 1; */
+        }
+
+        .footer::before {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 170px;
+            top: -170px;
+            background-image: url('./floorgree-1.png');
+        }
+
+
+        .footer::after {
+            position: absolute;
+            content: "";
+            width: 100%;
+            height: 170px;
+            top: -170px;
+            background-image: url('./floorgree-2.png');
+
+        }
+
+
+        #footer-shandow {
+            width: 80px;
+            height: 350px;
+            background-color: black;
+            position: absolute;
+
+            left: calc(50% - 40px);
+            z-index: 1;
+            transform: skewX(0deg);
+
+            transform-origin: top center;
+        }
+
+        .ll {
+            width: 80px;
+            height: 350px;
+            background-color: rgb(104, 78, 13);
+            position: absolute;
+            left: calc(50% - 40px);
+            bottom: 160px;
+
+
+        }
+
+        .colck {
+            width: 320px;
+            height: 320px;
+            background-color: aquamarine;
+            border-radius: 50%;
+            position: absolute;
+            top: -160px;
+            left: calc(-160px + 40px);
+            /*用border: 5px solid black; 會影響到寬高*/
+            border: 30px solid rgb(138, 138, 138);
+            padding: 20px;
+            box-sizing: border-box;
+
+
+
+        }
+
+
+
+        .center {
+            /* width: 8px;
+            height: 8px; */
+            background-color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* top: calc(50% - 4px);
+            left: calc(50% - 4px); */
+
+        }
+
+        /* .o {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+
+        } */
+
+        .center div {
+            position: absolute;
+            font-size: 32px;
+            top: calc(50% - 8px);
+            left: calc(50% - 4px);
+            /*整體偏右 曾20px改成11px*/
+
+        }
+
+
+
+        .a3 {
+            transform: translate(144px, 0px);
+        }
+
+        .a6 {
+            transform: translate(0px, 144px);
+        }
+
+        .a9 {
+            transform: translate(-144px, 0px);
+        }
+
+        .a12 {
+            transform: translate(-8px, -144px);
+        }
+
+        .ll>.clock-o1 {
+            width: 320px;
+            height: 320px;
+            background-color: rgba(127, 255, 212, 0.164);
+            border-radius: 50%;
+            position: absolute;
+            top: -160px;
+            left: calc(-160px + 40px);
+            transform: rotate(30deg);
+
+
+            /*  */
+        }
+
+        .clock-o2 {
+            transform: rotate(30deg);
+        }
+
+        .clock-o2 {
+            transform: rotate(60deg);
+        }
+
+        .clock-o4 {
+            transform: rotate(120deg);
+        }
+
+        .clock-o5 {
+            transform: rotate(150deg);
+        }
+
+        .clock-o7 {
+            transform: rotate(210deg);
+        }
+
+        .clock-o8 {
+            transform: rotate(240deg);
+        }
+
+        .clock-o10 {
+            transform: rotate(300deg);
+        }
+
+        .clock-o11 {
+            transform: rotate(330deg);
+        }
+
+
+        .o1-12 {
+            width: 8px;
+            height: 8px;
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            top: calc(50% - 4px);
+            left: calc(50% - 4px);
+            transform: translate(0, -144px)
+                /*width: 10px;
+            height: 10px;
+            background-color: white;
+            position: absolute;
+            top: calc(50% - 5px);
+            left: calc(50% - 5px);*/
+        }
+
+
+        #sun {
+            width: 1600px;
+            height: 1600px;
+            background-color: rgba(255, 255, 0, 0);
+            /* background: linear-gradient(90deg, rgb(28, 199, 114) 50%, rgb(30, 9, 65) 50%); */
+            position: absolute;
+            left: calc(50% - 800px);
+            top: calc(50% - 625px);
+            border-radius: 50%;
+            transform: rotate(0deg);
+        }
+
+
+        .moon {
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            bottom: -240px;
+            left: calc(50% - 125px);
+            border-radius: 50%;
+
+            background: rgb(182, 182, 182);
+        }
+
+
+        .sunn {
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            top: -240px;
+            left: calc(50% - 125px);
+            border-radius: 50%;
+            background: yellow;
+        }
+
+        #hour {
+            width: 10px;
+            height: 60px;
+            top: -60px;
+            left: -6px;
+            background-color: red;
+            border-radius: 10px;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+            /*軸如何往下*/
+        }
+
+        #minutes {
+            width: 10px;
+            height: 120px;
+            top: -120px;
+            left: -6px;
+            background-color: blue;
+            border-radius: 10px;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+            /*軸如何往下*/
+        }
+
+        #second {
+            width: 10px;
+            height: 120px;
+            top: -120px;
+            left: -6px;
+            background-color: rgb(141, 141, 141);
+            border-radius: 10px;
+            transform: rotate(0deg);
+            transform-origin: center bottom;
+            /*軸如何往下*/
+        }
+
+        #time {
+            position: absolute;
+            width: 600px;
+            text-align: center;
+            font-size: 50px;
+            top: -120px;
+            color: white;
+            left: -168px;
+        }
+
+        .footer-1 {
+            width: 100%;
+            height: 160px;
+            /* background-color: darkgreen; */
+            background-image: url('./000-3.png');
+            position: absolute;
+            bottom: 0;
+            overflow: hidden;
+
+        }
+
+        /* .footer-shandow {
+
+            overflow: hidden;
+ 
+            transform-origin: top center;
+            transform: skewX(0deg);
+        }           transform: rotate(0deg); */
+    </style>
+</head>
+
+<body>
+
+    <div class="footer">
+
+        <div class="ll">
+
+            <div class="colck">
+                <div id="time"></div>
+                <div class="center">
+                    <div class="a">
+                        <div class="a3">3</div>
+                        <div class="a6">6</div>
+                        <div class="a9">9</div>
+                        <div class="a12">12</div>
+                    </div>
+                    <div id="second"></div>
+                    <div id="minutes"></div>
+                    <div id="hour"></div>
+                </div>
+
+            </div>
+            <div class="clock-o1">
+                <div class="o1-12">
+                </div>
+            </div>
+            <div class="clock-o2">
+                <div class="o1-12">
+                </div>
+            </div>
+            <div class="clock-o4">
+                <div class="o1-12">
+                </div>
+            </div>
+            <div class="clock-o5">
+                <div class="o1-12">
+                </div>
+            </div>
+            <div class="clock-o7">
+                <div class="o1-12">
+                </div>
+            </div>
+            <div class="clock-o8">
+                <div class="o1-12">
+                </div>
+            </div>
+            <div class="clock-o10">
+                <div class="o1-12">
+                </div>
+            </div>
+            <div class="clock-o11">
+                <div class="o1-12">
+                </div>
+
+            </div>
+            <div id="sun">
+                <div class="sunn"></div>
+                <div class="moon"></div>
+            </div>
+        </div>
+        <div class="footer-1">
+            <div id="footer-shandow"></div>
+        </div>
+
+
+
+        <script>
+            const hour = document.getElementById('hour')
+            const minutes = document.getElementById('minutes')
+            const second = document.getElementById('second')
+            const sun = document.getElementById('sun')
+            const treeshandow = document.getElementById('footer-shandow')
+            // const hours = now.getHours();
+
+
+
+            setInterval(() => {
+
+
+                const date = new Date()
+                // const hours = date.getHours();
+                hour.style.transform = `rotate(${date.getHours() * 30 + 0}deg)`
+                minutes.style.transform = `rotate(${date.getMinutes() * 6 + 0}deg)`
+                second.style.transform = `rotate(${date.getSeconds() * 6 + 0}deg)`
+                sun.style.transform = `rotate(${date.getHours() * 15 + 180}deg)`
+                // if (hours >= 6 && hourts < 18) {
+
+                // } else {
+                //     treeshandow.style.transform = 'none'
+                // }
+                if (date.getHours() >= 18 || date.getHours() <= 6) {
+                    treeshandow.style.display = 'none'
+                    // `skewX(270deg)`
+                }
+
+
+                treeshandow.style.transform = `skewX(${date.getHours() * -15 + 0}deg)`
+
+
+
+                // treeshandow.style.transform = `skewX(${data.getHours() + 15 + 0}deg)`
+                //                  transform: skewX(    0deg) 
+
+                // const timeString = `${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+                // document.getElementById('time').textContent = timeString;
+
+            }, 1000);
+
+
+
+            function updateTime() {
+                const now = new Date();
+                let hour = now.getHours();
+                const minute = now.getMinutes();
+                const second = now.getSeconds();
+                const ampm = hour >= 12 ? 'PM' : 'AM';
+                hour = hour % 12;
+                hour = hour ? hour : 12;
+                const timeString = `${hour}:${minute}:${second} ${ampm}`;
+                document.getElementById('time').textContent = timeString;
+
+
+
+            }
+
+
+
+
+            setInterval(updateTime, 1000);
+        </script>
+
+
+</body>
+
+</html>
